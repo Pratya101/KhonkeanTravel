@@ -1,0 +1,23 @@
+@(formadd : Form[Travel])
+<br> <br>
+<center>
+    <h4>เพิ่มข้อมูลสถานที่ท่องเที่ยว</h4>
+</center>
+@import helper._;
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-7">
+
+        @if(flash.containsKey("msgError")) {
+            <div class="alert alert-danger"><strong>ผิดพลาด</strong>@flash.get("msgError"). </div>
+        }
+        @helper.form(action = routes.Application.insertTravel(), 'enctype -> "multipart/form-data") {
+            @inputText(formadd("title"),'size -> "100", '_label -> "",'placeholder->"ชื่อสถานที่", 'required -> "required", 'class -> "full-width form-field")
+            @textarea(formadd("detail"), '_label -> "", 'cols -> "100", 'rows -> "5",'placeholder->"รายละเอียด", 'required -> "required", 'class -> "full-width")
+            @inputFile(formadd("pic"), '_label -> "รูปสถานที่", 'required -> "required")
+            <input type="submit" value="บันทึก" class="btn btn-success">
+            <input type="reset" value="เคลียร์" class="btn btn-danger">
+            }
+    </div>
+    <div class="col-md-3"></div>
+</div>

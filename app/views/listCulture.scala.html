@@ -1,0 +1,36 @@
+@(culture: List[Culture])
+@import java.math.BigInteger;var i = 1;
+
+<div class="row masonry-wrap" style="background-color: white">
+<center><h4>รายการข้อมูลประวัติศาสตร์สถานที่ต่างๆในเมืองขอนแก่น</h4></center>
+<br>
+
+
+<a href="/formAddCulture" class="btn btn-info">เพิ่มข้อมูลประวัติศาสตร์สถานที่ต่างๆในเมืองขอนแก่น</a>
+<br>
+<br>
+<table border="1">
+    <tr>
+        <td align="center" width="100px"><b>ลำดับที่</b></td>
+        <td align="center" width="250px"><b>เรื่อง</b></td>
+        <td align="center" width="500px"><b>รายละอียด</b></td>
+        <td align="center" width="100px"><b>รูปภาพ</b></td>
+        <td align="center" width="100px"><b>แก้ไข</b></td>
+        <td align="center" width="100px"><b>ลบ</b></td>
+    </tr>
+    @for(data <- culture) {
+        <tr>
+            <td valign="middle" align="center" width="100px">@i</td>
+            <td width="250px">@data.getTitle</td>
+            <td width="500px">@data.getDetail</td>
+            <td valign="middle" align="center" width="100px"><img src="/assets/images/@data.getPic" width="100px" height="100px" alt=""></td>
+            <td valign="middle" align="center" width="100px"><a href="/editCulture/@data.getId">แก้ไข</a> </td>
+            <td valign="middle" align="center" width="100px"><a href="/deleteCulture/@data.getId" onclick="return confirm('คุณต้องการที่จะลบรายการนี้ใช่ไหรือไม่')">ลบ</a></td>
+        </tr>
+        @(i = i + 1)
+    }
+    <tr>
+        <td colspan="6"></td>
+    </tr>
+</table>
+</div>

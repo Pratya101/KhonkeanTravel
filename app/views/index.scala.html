@@ -1,0 +1,63 @@
+@(content: Html, travel: Travel, culture: List[Culture])
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+
+            <!--- basic page needs
+    ================================================== -->
+        <meta charset="utf-8">
+        <title>Philosophy</title>
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+            <!-- mobile specific metas
+    ================================================== -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+            <!-- CSS
+    ================================================== -->
+
+
+        <link rel="stylesheet" href="/assets/template/css/base.css">
+        <link rel="stylesheet" href="/assets/template/css/vendor.css">
+        <link rel="stylesheet" href="/assets/template/css/main.css">
+        <link href="https://fonts.googleapis.com/css?family=K2D&display=swap" rel="stylesheet">
+
+
+            <!-- script
+    ================================================== -->
+        <script src="/assets/template/js/modernizr.js"></script>
+        <script src="/assets/template/js/pace.min.js"></script>
+
+            <!-- favicons
+    ================================================== -->
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    </head>
+
+    <body id="top" style="font-family: 'K2D', sans-serif;">
+        @if(session.get("sunHeader") == "1") {
+            <section class="s-pageheader s-pageheader--home">
+                @header()
+                @subHeader(travel, culture)
+            </section>
+        } else {
+            <section class="s-pageheader">
+            @header()
+            </section>
+        }
+        <div style="background-color: white;">
+        @content
+        </div>
+        @footer()
+
+            <!-- Java Script
+    ================================================== -->
+        <script src="/assets/template/js/jquery-3.2.1.min.js"></script>
+        <script src="/assets/template/js/plugins.js"></script>
+        <script src="/assets/template/js/main.js"></script>
+
+    </body>
+
+</html>

@@ -1,0 +1,23 @@
+@(culture: List[Culture])
+    <br>
+    <b>วัฒนธรรมจังหวัดขอนแก่น</b>
+    <div class="row">
+@for(data<-culture){
+    <div class="col-md-6" style="padding: 1px;">
+    <div class="card" style="max-width: 100%;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="/assets/images/@data.getPic" class="card-img" width="183px" height="143px"  alt="text">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">@data.getTitle</h5>
+                    <p class="card-text">@data.getDetail()</p>
+                    <a href="/detailCulture/@data.getId"  class="btn btn-info">อ่านเพิ่มเติม...</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+}
+    </div>

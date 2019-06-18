@@ -1,0 +1,44 @@
+@(travel: List[Travel])
+<section class="s-content">
+
+    <div class="row narrow">
+        <div class="col-full s-content__header" data-aos="fade-up">
+            <h1>สถานที่ท่องเที่ยวในขอนแก่น</h1>
+        </div>
+    </div>
+
+    <div class="row masonry-wrap">
+        <div class="masonry">
+            <div class="grid-sizer"></div>
+            @for(data<-travel){
+                <article class="masonry__brick entry format-standard" data-aos="fade-up">
+                    <div class="entry__thumb">
+                        <a href="/detailTravel/@data.getId" class="entry__thumb-link">
+                            <img src="/assets/images/@data.getPic"
+                           >
+                        </a>
+                    </div>
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            <h1 class="entry__title"><a href="/detailTravel/@data.getId">@data.getTitle</a></h1>
+
+
+                        </div>
+                        <div class="entry__excerpt">
+                            <p>
+                                @data.getDetail.substring(0,50)...
+                            </p>
+                        </div>
+                        <div class="entry__meta">
+                            <span class="entry__meta-links">
+                                <a href="/detailTravel/@data.getId">ดูรายละเอียด</a>
+                            </span>
+                        </div>
+                    </div>
+                </article> <!-- end article -->
+            }
+
+        </div> <!-- end masonry -->
+    </div> <!-- end masonry-wrap -->
+
+</section> <!-- s-content -->

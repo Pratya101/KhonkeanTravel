@@ -1,0 +1,28 @@
+@(travel: Travel,culture: List[Culture])
+<div  class="pageheader-content row">
+    <div class="col-full">
+        <div class="featured">
+            <div  href="/detailTravel/@travel.getId" class="featured__column featured__column--big">
+                <div class="entry" style="background-image:url('/assets/images/@travel.getPic');">
+                    <div class="entry__content">
+                        <span class="entry__category"><a href="#0">New Place Travel</a></span>
+                        <h1><a href="/detailTravel/@travel.getId" title="">@travel.getTitle</a></h1>
+                    </div> <!-- end entry__content -->
+                </div> <!-- end entry -->
+            </div> <!-- end featured__big -->
+
+            <div class="featured__column featured__column--small">
+                @for(data<-culture.sortWith(_.getId > _.getId).take(2)){
+                    <div href="/detailCulture/@data.getId" class="entry" style="background-image:url('/assets/images/@data.getPic');">
+                        <div class="entry__content">
+                            <span class="entry__category"><a href="#0">New News</a></span>
+                            <h1><a href="/detailCulture/@data.getId" title="">@data.getTitle</a></h1>
+                        </div> <!-- end entry__content -->
+                    </div> <!-- end entry -->
+                }
+
+            </div> <!-- end featured__small -->
+        </div> <!-- end featured -->
+
+    </div> <!-- end col-full -->
+</div> <!-- end pageheader-content row -->

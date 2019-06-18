@@ -1,0 +1,31 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET         /                         controllers.Application.mainPage()
+GET         /index                    controllers.Application.history()
+GET         /login                    controllers.Application.login()
+POST        /loginOK                    controllers.Application.loinOk()
+GET         /logout                     controllers.Application.logout()
+GET         /indexAdmin                 controllers.Application.indexAdmin()
+GET         /about                    controllers.Application.about()
+GET         /contact                  controllers.Application.contact()
+GET         /listCulture              controllers.Application.listCulture()
+GET         /formAddCulture           controllers.Application.addCulture()
+POST        /insertAddCulture         controllers.Application.insertCulture()
+GET         /editCulture/:id          controllers.Application.editCulture(id : String)
+POST        /updateCulture            controllers.Application.updateCulture
+GET         /deleteCulture/:id        controllers.Application.deleteCulture(id : String)
+GET         /showListCulture          controllers.Application.showListCulture
+GET         /detailCulture/:id        controllers.Application.detailCulture(id :String)
+GET         /listTravel               controllers.Application.listTravel()
+GET         /formAddTravel            controllers.Application.addTravel()
+POST        /insertTravel             controllers.Application.insertTravel()
+GET         /editTravel/:id           controllers.Application.editTravel(id : String)
+POST        /updateTravel             controllers.Application.updateTravel
+GET         /deleteTravel/:id         controllers.Application.deleteTravel(id : String)
+GET         /showListTravel           controllers.Application.showListTravel()
+GET         /detailTravel/:id         controllers.Application.detailTravel(id :String)
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file             controllers.Assets.at(path="/public", file)

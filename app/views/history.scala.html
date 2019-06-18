@@ -1,0 +1,57 @@
+@(travel: List[Travel], culture: List[Culture])
+<br>
+<section class="s-content" style="padding-bottom: 0px;border-style: solid;border-width: medium;" >
+    <center><div style="font-weight: bold;font-size: 20px"><b>สถานที่ท่องเที่ยว</b></div></center>
+
+    <div class="row masonry-wrap" >
+        <div class="masonry" style="position: relative;height: 300px;">
+            <div class="grid-sizer"></div>
+            @for(data<-travel.sortWith(_.getId > _.getId).take(3)){
+                <article class="masonry__brick entry format-standard" data-aos="fade-up">
+                    <div class="entry__thumb">
+                        <a href="/detailTravel/@data.getId" class="entry__thumb-link">
+                            <img src="/assets/images/@data.getPic"
+                            >
+                        </a>
+                    </div>
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            <h1 class="entry__title"><a href="/detailTravel/@data.getId">@data.getTitle</a></h1>
+                        </div>
+                    </div>
+                </article> <!-- end article -->
+            }
+        </div> <!-- end masonry -->
+    </div> <!-- end masonry-wrap -->
+</section> <!-- s-content -->
+<br>
+<section class="s-content" style="padding-bottom: 0px;border-style: solid;border-width: medium;">
+    <center><div style="font-weight: bold;font-size: 20px"><b>ข้อมูลประวัติศาสตร์สถานที่ต่างๆ</b></div></center>
+
+    <div class="row narrow">
+
+    </div>
+    <div class="row masonry-wrap" >
+        <div class="masonry">
+            <div class="grid-sizer"></div>
+            @for(data<-culture.sortWith(_.getId > _.getId).take(3)){
+                <article class="masonry__brick entry format-standard" data-aos="fade-up">
+                    <div class="entry__thumb">
+                        <a href="/detailCulture/@data.getId" class="entry__thumb-link">
+                            <img src="/assets/images/@data.getPic"
+                            >
+                        </a>
+                    </div>
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            <h1 class="entry__title"><a href="/detailCulture/@data.getId">@data.getTitle</a></h1>
+                        </div>
+                    </div>
+                </article> <!-- end article -->
+            }
+
+        </div> <!-- end masonry -->
+    </div> <!-- end masonry-wrap -->
+
+</section> <!-- s-content -->
+<br>

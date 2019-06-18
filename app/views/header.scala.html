@@ -1,0 +1,36 @@
+<header class="header">
+    <div class="header__content row">
+        <div class="header__logo">
+            <a class="logo" href="/index">
+                <img src="/assets/images/logo.png" alt="Homepage">
+            </a>
+        </div> <!-- end header__logo -->
+
+        <a class="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
+
+        <nav class="header__nav-wrap">
+
+            <h2 class="header__nav-heading h6">Site Navigation</h2>
+                @if(session.get("username")==null|| session.get("username")==""){
+                    <ul class="header__nav">
+                        <li class="current"><a href="/index" title="">หน้าหลัก</a></li>
+                        <li><a href="/showListTravel" title="">สถานที่ท่องเที่ยว</a></li>
+                        <li><a href="/showListCulture" title="">ข้อมูลประวัติศาสตร์สถานที่ต่างๆ</a></li>
+                        <li><a href="/about" title="">เกี่ยวกับ</a></li>
+                        <li><a href="/contact" title="">ติดต่อ</a></li>
+
+                    </ul> <!-- end header__nav -->
+                }else{
+                    <ul class="header__nav">
+                        <li class="current"><a href="/indexAdmin" title="">หน้าหลัก</a></li>
+                        <li><a href="/listTravel" title="">จัดการข้อมูลสถานที่ท่องเที่ยว</a></li>
+                        <li><a href="/listCulture" title="">จัดการข้อมูลประวัติศาสตร์สถานที่ต่างๆ</a></li>
+                        <li > <a href="/logout">ออกจากระบบ</a></li>
+                    </ul> <!-- end header__nav -->
+                }
+
+            <a href="#" title="Close Menu" class="header__overlay-close close-mobile-menu">Close</a>
+        </nav> <!-- end header__nav-wrap -->
+
+    </div> <!-- header-content -->
+</header> <!-- header -->
